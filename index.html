@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test SSL GitHub Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .ssl-status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .ssl-active {
+            background-color: #e6ffed;
+            border: 1px solid #b7ebc9;
+            color: #257942;
+        }
+        .ssl-inactive {
+            background-color: #ffebeb;
+            border: 1px solid #f5c0c0;
+            color: #c92c2c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pagina di Test SSL per GitHub Pages</h1>
+        <p>Se visualizzi questa pagina correttamente, il tuo sito su GitHub Pages è attivo.</p>
+        <div id="ssl-indicator" class="ssl-status">
+            Controllo SSL in corso...
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sslIndicator = document.getElementById('ssl-indicator');
+            if (window.location.protocol === "https:") {
+                sslIndicator.textContent = "SSL è ATTIVO. La connessione è sicura (HTTPS).";
+                sslIndicator.classList.add('ssl-active');
+                sslIndicator.classList.remove('ssl-inactive');
+            } else {
+                sslIndicator.textContent = "SSL NON è attivo. La connessione NON è sicura (HTTP).";
+                sslIndicator.classList.add('ssl-inactive');
+                sslIndicator.classList.remove('ssl-active');
+            }
+        });
+    </script>
+</body>
+</html>
